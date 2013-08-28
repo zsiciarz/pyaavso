@@ -17,7 +17,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
     def tearDown(self):
         self.fp.close()
 
-    def test_write_header_type(self):
+    def test_header_type(self):
         """
         Check that TYPE parameter is always Visual.
         """
@@ -25,7 +25,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         contents = self.fp.getvalue()
         self.assertIn("#TYPE=Visual", contents)
 
-    def test_write_header_obscode(self):
+    def test_header_obscode(self):
         """
         Check that observer code is written into file.
         """
@@ -33,7 +33,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         contents = self.fp.getvalue()
         self.assertIn("#OBSCODE=XYZ", contents)
 
-    def test_write_header_software(self):
+    def test_header_software(self):
         """
         Check that the SOFTWARE parameter is correct.
         """
@@ -41,7 +41,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         contents = self.fp.getvalue()
         self.assertIn("#SOFTWARE=pyaavso %s" % pyaavso.get_version(), contents)
 
-    def test_write_header_date(self):
+    def test_header_date(self):
         """
         Check that the DATE parameter represents date format used.
         """
@@ -49,7 +49,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         contents = self.fp.getvalue()
         self.assertIn("#DATE=JD", contents)
 
-    def test_write_header_obstype(self):
+    def test_header_obstype(self):
         """
         Check that OBSTYPE parameter is correctly set.
         """
@@ -57,7 +57,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         contents = self.fp.getvalue()
         self.assertIn("#OBSTYPE=Visual", contents)
 
-    def test_write_header_obstype_ptg(self):
+    def test_header_obstype_ptg(self):
         """
         Check that OBSTYPE can be set to PTG (Photographic).
         """
