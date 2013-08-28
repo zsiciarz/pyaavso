@@ -48,3 +48,19 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         writer = VisualFormatWriter(self.fp, 'XYZ', date_format='jd')
         contents = self.fp.getvalue()
         self.assertIn("#DATE=JD", contents)
+
+    def test_write_header_obstype(self):
+        """
+        Check that OBSTYPE parameter is correctly set.
+        """
+        writer = VisualFormatWriter(self.fp, 'XYZ', obstype='Visual')
+        contents = self.fp.getvalue()
+        self.assertIn("#OBSTYPE=Visual", contents)
+
+    def test_write_header_obstype_ptg(self):
+        """
+        Check that OBSTYPE can be set to PTG (Photographic).
+        """
+        writer = VisualFormatWriter(self.fp, 'XYZ', obstype='PTG')
+        contents = self.fp.getvalue()
+        self.assertIn("#OBSTYPE=PTG", contents)
