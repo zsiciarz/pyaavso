@@ -64,3 +64,19 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         writer = VisualFormatWriter(self.fp, 'XYZ', obstype='PTG')
         contents = self.fp.getvalue()
         self.assertIn("#OBSTYPE=PTG", contents)
+
+    def test_write_raw_data(self):
+        """
+        Check that writerow() can accept raw data record.
+        """
+        data = [
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', '113', '070613',
+            'This is a test',
+        ]
+        writer = VisualFormatWriter(self.fp, 'XYZ')
+        writer.writerow(data)
+        lines = self.fp.getvalue().splitlines()
+        self.assertEqual(
+            lines[5],
+            "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
+        )
