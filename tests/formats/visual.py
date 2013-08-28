@@ -10,11 +10,16 @@ class VisualFormatWriterTestCase(unittest.TestCase):
     """
     Tests for VisualFormatWriter class.
     """
+    def setUp(self):
+        self.fp = StringIO()
+
+    def tearDown(self):
+        self.fp.close()
+
     def test_write_header_obscode(self):
         """
         Check that observer code is written into file.
         """
-        fp = StringIO()
-        writer = VisualFormatWriter(fp, 'XYZ')
-        contents = fp.getvalue()
+        writer = VisualFormatWriter(self.fp, 'XYZ')
+        contents = self.fp.getvalue()
         self.assertIn("#OBSCODE=XYZ", contents)
