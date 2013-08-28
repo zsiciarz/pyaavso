@@ -1,0 +1,11 @@
+*~
+*.pyo
+*.pyc
+dist/
+build/
+*.egg-info
+docs/_*
+.coverage
+*,cover
+htmlcov
+.tox/
