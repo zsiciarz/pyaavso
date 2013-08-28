@@ -20,4 +20,5 @@ class VisualFormatWriter(object):
         self.observer_code = observer_code
         self.date_format = date_format
         self.obstype = obstype
+        fp.write('#TYPE=Visual\n')
         fp.write('#OBSCODE=%s\n' % observer_code)
