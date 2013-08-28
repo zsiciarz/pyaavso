@@ -25,3 +25,4 @@ class VisualFormatWriter(object):
         fp.write('#TYPE=Visual\n')
         fp.write('#OBSCODE=%s\n' % observer_code)
         fp.write("#SOFTWARE=pyaavso %s\n" % pyaavso.get_version())
+        fp.write("#DATE=%s\n" % date_format.upper())
