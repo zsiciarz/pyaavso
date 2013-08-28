@@ -37,7 +37,14 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         """
         Check that the SOFTWARE parameter is correct.
         """
-
         writer = VisualFormatWriter(self.fp, 'XYZ')
         contents = self.fp.getvalue()
         self.assertIn("#SOFTWARE=pyaavso %s" % pyaavso.get_version(), contents)
+
+    def test_write_header_date(self):
+        """
+        Check that the DATE parameter represents date format used.
+        """
+        writer = VisualFormatWriter(self.fp, 'XYZ', date_format='jd')
+        contents = self.fp.getvalue()
+        self.assertIn("#DATE=JD", contents)
