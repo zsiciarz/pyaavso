@@ -30,3 +30,18 @@ class VisualFormatWriter(object):
         fp.write("#DATE=%s\n" % date_format.upper())
         fp.write("#OBSTYPE=%s\n" % obstype)
         self.writer = csv.writer(fp, delimiter=delimiter)
+
+    def writerow(self, observation_data):
+        if isinstance(observation_data, (list, tuple)):
+            row = observation_data
+        else:
+            row = []
+            row.append(observation_data['name'])
+            row.append(observation_data['date'])
+            row.append(observation_data['magnitude'])
+            row.append(observation_data['comment_code'])
+            row.append(observation_data['comp1'])
+            row.append(observation_data['comp2'])
+            row.append(observation_data['chart'])
+            row.append(observation_data['notes'])
+        self.writer.writerow(row)
