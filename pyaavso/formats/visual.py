@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import pyaavso
+
 
 class VisualFormatWriter(object):
     """
@@ -22,3 +24,4 @@ class VisualFormatWriter(object):
         self.obstype = obstype
         fp.write('#TYPE=Visual\n')
         fp.write('#OBSCODE=%s\n' % observer_code)
+        fp.write("#SOFTWARE=pyaavso %s\n" % pyaavso.get_version())
