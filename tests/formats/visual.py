@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import unittest
 from StringIO import StringIO
 
+import pyaavso
 from pyaavso.formats.visual import VisualFormatWriter
 
 
@@ -31,3 +32,12 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         writer = VisualFormatWriter(self.fp, 'XYZ')
         contents = self.fp.getvalue()
         self.assertIn("#OBSCODE=XYZ", contents)
+
+    def test_write_header_software(self):
+        """
+        Check that the SOFTWARE parameter is correct.
+        """
+
+        writer = VisualFormatWriter(self.fp, 'XYZ')
+        contents = self.fp.getvalue()
+        self.assertIn("#SOFTWARE=pyaavso %s" % pyaavso.get_version(), contents)
