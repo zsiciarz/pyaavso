@@ -32,6 +32,14 @@ class VisualFormatWriter(object):
         self.writer = csv.writer(fp, delimiter=delimiter)
 
     def writerow(self, observation_data):
+        """
+        Writes a single observation to the output file.
+
+        If the ``observation_data`` parameter is a dictionary, it is
+        converted to a list to keep a consisted field order (as described
+        in format specification). Otherwise it is assumed that the data
+        is a raw record ready to be written to file.
+        """
         if isinstance(observation_data, (list, tuple)):
             row = observation_data
         else:
