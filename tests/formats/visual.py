@@ -16,6 +16,14 @@ class VisualFormatWriterTestCase(unittest.TestCase):
     def tearDown(self):
         self.fp.close()
 
+    def test_write_header_type(self):
+        """
+        Check that TYPE parameter is always Visual.
+        """
+        writer = VisualFormatWriter(self.fp, 'XYZ')
+        contents = self.fp.getvalue()
+        self.assertIn("#TYPE=Visual", contents)
+
     def test_write_header_obscode(self):
         """
         Check that observer code is written into file.
