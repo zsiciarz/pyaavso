@@ -14,7 +14,7 @@ setup(
     url='http://github.com/zsiciarz/pyaavso',
     download_url='http://pypi.python.org/pypi/pyaavso',
     license='MIT',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
     classifiers=[
         'Development Status :: 1 - Planning',
