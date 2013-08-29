@@ -16,12 +16,14 @@ setup(
     license='MIT',
     packages=find_packages(),
     include_package_data=True,
-    classifiers=['Development Status :: 1 - Planning',
-                 'Intended Audience :: Developers',
-                 'Intended Audience :: Science/Research',
-                 'License :: OSI Approved :: MIT License',
-                 'Operating System :: OS Independent',
-                 'Programming Language :: Python',
-                 'Topic :: Scientific/Engineering :: Astronomy',
-                 'Topic :: Utilities'],
+    classifiers=[
+        'Development Status :: 1 - Planning',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Scientific/Engineering :: Astronomy',
+        'Topic :: Utilities'
+    ],
 )
