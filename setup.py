@@ -16,6 +16,7 @@ setup(
     license='MIT',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
+    test_suite='nose.collector',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
