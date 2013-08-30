@@ -80,3 +80,25 @@ class VisualFormatWriterTestCase(unittest.TestCase):
             lines[5],
             "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
         )
+
+    def test_write_dict(self):
+        """
+        Check that dictionary of observation data can be written to file.
+        """
+        data = {
+            'name': 'SS CYG',
+            'date': '2450702.1234',
+            'magnitude': '<11.1',
+            'comment_code': 'na',
+            'comp1': '110',
+            'comp2': '113',
+            'chart': '070613',
+            'notes': 'This is a test',
+        }
+        writer = VisualFormatWriter(self.fp, 'XYZ')
+        writer.writerow(data)
+        lines = self.fp.getvalue().splitlines()
+        self.assertEqual(
+            lines[5],
+            "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
+        )
