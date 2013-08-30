@@ -1,0 +1,7 @@
+[report]
+omit =
+    pyaavso/__init__.py
+    .tox/*
+    ../src/*
+    ../lib/*
+    */test*
