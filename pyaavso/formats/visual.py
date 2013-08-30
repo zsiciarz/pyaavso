@@ -15,7 +15,7 @@ class VisualFormatWriter(object):
     .. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
     """
 
-    def __init__(self, fp, observer_code, delimiter=b',', date_format='JD',
+    def __init__(self, fp, observer_code, delimiter=str(','), date_format='JD',
                  obstype='Visual'):
         """
         Creates the writer which will write observations into the file-like
