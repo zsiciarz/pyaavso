@@ -18,6 +18,7 @@ setup(
     include_package_data=True,
     tests_require=['nose'],
     test_suite='nose.collector',
+    platforms='any',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
