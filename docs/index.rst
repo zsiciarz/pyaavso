@@ -19,6 +19,19 @@ Contents
    pyaavso
 
 
+License
+=======
+
+pyaavso is free software, licensed under the MIT/X11 License. A copy of
+the license is provided with the source code in the LICENSE file.
+
+
+Author
+======
+
+`Zbigniew Siciarz <http://siciarz.net>`_
+
+
 Indices and tables
 ==================
 
