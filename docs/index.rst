@@ -3,10 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pyaavso's documentation!
-===================================
+=======
+pyaavso
+=======
 
-Contents:
+A Python library for working with `AAVSO <http://www.aavso.org>`_ (American
+Association of Variable Star Observers) data.
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 4
