@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 import unittest
-from StringIO import StringIO
+from six import StringIO
 
 import pyaavso
 from pyaavso.formats.visual import VisualFormatWriter
