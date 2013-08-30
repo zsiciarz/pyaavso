@@ -1,5 +1,5 @@
-pyaavso Package
-===============
+API reference
+=============
 
 :mod:`pyaavso` Package
 ----------------------
