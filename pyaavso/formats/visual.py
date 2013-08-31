@@ -76,6 +76,8 @@ class VisualFormatReader(object):
                 header_str = line[1:]
                 key, value = header_str.split('=', 1)
                 headers[key] = value
+        if 'TYPE' not in headers:
+            raise FormatException('TYPE parameter is required')
         try:
             self.observer_code = headers['OBSCODE']
         except KeyError:
