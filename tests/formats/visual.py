@@ -4,7 +4,8 @@ import unittest
 from six import StringIO
 
 import pyaavso
-from pyaavso.formats.visual import VisualFormatWriter
+from pyaavso.formats.visual import VisualFormatWriter, VisualFormatReader, \
+    FormatException
 
 
 class VisualFormatWriterTestCase(unittest.TestCase):
@@ -102,3 +103,32 @@ class VisualFormatWriterTestCase(unittest.TestCase):
             lines[5],
             "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
         )
+
+
+class VisualFormatReaderTestCase(unittest.TestCase):
+    """
+    Tests for VisualFormatReader class.
+    """
+    def setUp(self):
+        self.lines = [
+            "#TYPE=VISUAL",
+            "#OBSCODE=XYZ",
+            "#SOFTWARE=Notepad",
+            "#DELIM=,",
+            "#DATE=JD",
+            "#OBSTYPE=Visual",
+            "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test",
+        ]
+        self.fp = StringIO("\n".join(self.lines))
+
+    def tearDown(self):
+        self.fp.close()
+
+    def test_observer_code(self):
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.observer_code, 'XYZ')
+
+    def test_missing_observer_code(self):
+        fp = StringIO("\n".join(line for line in self.lines if 'OBSCODE' not in line))
+        with self.assertRaises(FormatException):
+            reader = VisualFormatReader(fp)
