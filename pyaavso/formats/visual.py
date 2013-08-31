@@ -69,6 +69,21 @@ class VisualFormatReader(object):
     """
 
     def __init__(self, fp):
+        """
+        Creates the reader instance and reads file headers.
+
+        Raises ``FormatException`` when any of the required headers could not
+        be found in input. The following header parameters are required:
+
+         * *TYPE* - always 'Visual', yet must be specified in file
+         * *OBSCODE* - official AAVSO-assigned observer code
+         * *DATE* - date format, must be one of 'JD' or 'Excel'
+
+        Other headers described in AAVSO specification have reasonable default
+        values, eg. the default delimiter is a comma, when not specified
+        in headers. Without the *OBSTYPE* header, observations are assumed
+        to be visual.
+        """
         headers = {}
         for line in fp:
             line = line.strip()
