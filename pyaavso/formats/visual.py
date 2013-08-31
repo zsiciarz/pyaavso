@@ -18,6 +18,23 @@ class VisualFormatWriter(object):
 
     The API here mimics the ``csv`` module in Python standard library.
 
+    To write your observations into the data file, you first need to create
+    the writer, passing to it the destination file and your observer code.
+    Then call ``writerow()`` for every single observation, for example:
+
+        >>> with open('data.txt', 'wb') as fp:
+        ...     writer = VisualFormatWriter(fp, 'XYZ')
+        ...     writer.writerow({
+        ...         'name': 'SS CYG',
+        ...         'date': '2450702.1234',
+        ...         'magnitude': '<11.1',
+        ...         'comment_code': 'na',
+        ...         'comp1': '110',
+        ...         'comp2': '113',
+        ...         'chart': '070613',
+        ...         'notes': 'This is a test',
+        ...     })
+
     .. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
     """
 
