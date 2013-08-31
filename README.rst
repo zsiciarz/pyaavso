@@ -9,6 +9,7 @@ Resources
 ---------
 
  * `Documentation <http://pyaavso.rtfd.org>`_
+ * `Issue tracker <https://github.com/zsiciarz/pyaavso/issues>`_
 
 Author
 ------
