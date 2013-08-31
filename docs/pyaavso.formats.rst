@@ -7,5 +7,3 @@ formats Package
 .. automodule:: pyaavso.formats.visual
     :members:
     :undoc-members:
-    :show-inheritance:
-
