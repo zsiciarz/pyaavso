@@ -113,4 +113,13 @@ class VisualFormatReader(object):
 
     def __iter__(self):
         for row in self.reader:
-            yield row
+            yield {
+                'name': row[0],
+                'date': row[1],
+                'magnitude': row[2],
+                'comment_code': row[3],
+                'comp1': row[4],
+                'comp2': row[5],
+                'chart': row[6],
+                'notes': row[7],
+            }
