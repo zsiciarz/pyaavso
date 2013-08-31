@@ -5,6 +5,10 @@ import csv
 import pyaavso
 
 
+class FormatException(Exception):
+    pass
+
+
 class VisualFormatWriter(object):
     """
     A class responsible for writing observation data in AAVSO
@@ -54,3 +58,25 @@ class VisualFormatWriter(object):
             row.append(observation_data['chart'])
             row.append(observation_data['notes'])
         self.writer.writerow(row)
+
+
+class VisualFormatReader(object):
+    """
+    A class to read observations from file in AAVSO
+    `Visual File Format`_.
+
+    .. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
+    """
+
+    def __init__(self, fp):
+        headers = {}
+        for line in fp:
+            line = line.strip()
+            if line and line[0] == '#' and '=' in line:
+                header_str = line[1:]
+                key, value = header_str.split('=', 1)
+                headers[key] = value
+        try:
+            self.observer_code = headers['OBSCODE']
+        except KeyError:
+            raise FormatException('OBSCODE parameter is required')
