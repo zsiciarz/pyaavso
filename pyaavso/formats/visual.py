@@ -6,7 +6,9 @@ import pyaavso
 
 
 class FormatException(Exception):
-    pass
+    """
+    Raised when the data does not conform to AAVSO format specification.
+    """
 
 
 class VisualFormatWriter(object):
