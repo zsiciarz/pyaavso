@@ -68,6 +68,20 @@ class VisualFormatReader(object):
     `Visual File Format`_.
 
     .. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
+
+    The reader API is also based on ``csv`` Python module. You create a reader
+    instance by passing a file-like object in the constructor. This will
+    read all the data and validate required headers. Then the reader object
+    can be used to iterate over observation data.
+
+    A short example:
+
+    >>> with open('data.txt', 'rb') as fp:
+    ...     reader = VisualFormatReader(fp)
+    ...     for observation in reader:
+    ...         print '%(name)s %(magnitude)s' % observation
+    SS Cyg 10.0
+    RZ Cas 6.4
     """
 
     def __init__(self, fp):
