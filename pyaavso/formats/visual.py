@@ -80,3 +80,7 @@ class VisualFormatReader(object):
             self.observer_code = headers['OBSCODE']
         except KeyError:
             raise FormatException('OBSCODE parameter is required')
+        try:
+            self.date_format = headers['DATE']
+        except KeyError:
+            raise FormatException('DATE parameter is required')

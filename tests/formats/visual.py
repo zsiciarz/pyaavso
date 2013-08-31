@@ -132,3 +132,12 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         fp = StringIO("\n".join(line for line in self.lines if 'OBSCODE' not in line))
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(fp)
+
+    def test_date_format(self):
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.date_format, 'JD')
+
+    def test_missing_date_format(self):
+        fp = StringIO("\n".join(line for line in self.lines if 'DATE' not in line))
+        with self.assertRaises(FormatException):
+            reader = VisualFormatReader(fp)
