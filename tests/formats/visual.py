@@ -230,3 +230,14 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         reader = VisualFormatReader(self.fp)
         rows = [row for row in reader]
         self.assertEqual(len(rows), 2)
+
+    def test_row_dictionary(self):
+        """
+        Check that an observation is returned as a dictionary of values.
+        """
+        reader = VisualFormatReader(self.fp)
+        rows = [row for row in reader]
+        observation = rows[0]
+        self.assertEqual(observation['name'], 'SS CYG')
+        self.assertEqual(observation['comp1'], '110')
+        self.assertEqual(observation['comp2'], '113')
