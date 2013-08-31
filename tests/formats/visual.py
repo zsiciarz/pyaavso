@@ -211,3 +211,22 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self._drop_header('OBSTYPE')
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.obstype, 'Visual')
+
+    def test_row_count(self):
+        """
+        Check that number of records in initial input file is exactly 1.
+        """
+        reader = VisualFormatReader(self.fp)
+        rows = [row for row in reader]
+        self.assertEqual(len(rows), 1)
+
+    def test_row_count_duplicated(self):
+        """
+        Check that there are exactly 2 records after duplicating the last line.
+        """
+        # duplicate the last line
+        self.lines.append(self.lines[-1])
+        self.fp = StringIO("\n".join(self.lines))
+        reader = VisualFormatReader(self.fp)
+        rows = [row for row in reader]
+        self.assertEqual(len(rows), 2)
