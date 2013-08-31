@@ -124,20 +124,25 @@ class VisualFormatReaderTestCase(unittest.TestCase):
     def tearDown(self):
         self.fp.close()
 
+    def _drop_header(self, header_name):
+        self.fp = StringIO("\n".join(
+            line for line in self.lines if header_name not in line
+        ))
+
     def test_observer_code(self):
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.observer_code, 'XYZ')
 
     def test_missing_observer_code(self):
-        fp = StringIO("\n".join(line for line in self.lines if 'OBSCODE' not in line))
+        self._drop_header('OBSCODE')
         with self.assertRaises(FormatException):
-            reader = VisualFormatReader(fp)
+            reader = VisualFormatReader(self.fp)
 
     def test_date_format(self):
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.date_format, 'JD')
 
     def test_missing_date_format(self):
-        fp = StringIO("\n".join(line for line in self.lines if 'DATE' not in line))
+        self._drop_header('DATE')
         with self.assertRaises(FormatException):
-            reader = VisualFormatReader(fp)
+            reader = VisualFormatReader(self.fp)
