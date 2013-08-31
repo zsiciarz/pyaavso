@@ -130,24 +130,39 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         ))
 
     def test_missing_type(self):
+        """
+        Check that a missing TYPE header raises an exception.
+        """
         self._drop_header('TYPE')
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(self.fp)
 
     def test_observer_code(self):
+        """
+        Check that observer code matches header information.
+        """
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.observer_code, 'XYZ')
 
     def test_missing_observer_code(self):
+        """
+        Check that a missing OBSCODE header raises an exception.
+        """
         self._drop_header('OBSCODE')
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(self.fp)
 
     def test_date_format(self):
+        """
+        Check that the date format is read correctly.
+        """
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.date_format, 'JD')
 
     def test_missing_date_format(self):
+        """
+        Check that a missing DATE header raises an exception.
+        """
         self._drop_header('DATE')
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(self.fp)
