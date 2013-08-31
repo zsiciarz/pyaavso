@@ -196,3 +196,18 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self._drop_header('DELIM')
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.delimiter, str(','))
+
+    def test_obstype(self):
+        """
+        Check that observation type matches data in header.
+        """
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.obstype, str('Visual'))
+
+    def test_missing_obstype(self):
+        """
+        Check that Visual is assumed obstype when OBSTYPE header is missing.
+        """
+        self._drop_header('OBSTYPE')
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.obstype, 'Visual')
