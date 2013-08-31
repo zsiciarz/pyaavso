@@ -129,6 +129,11 @@ class VisualFormatReaderTestCase(unittest.TestCase):
             line for line in self.lines if header_name not in line
         ))
 
+    def test_missing_type(self):
+        self._drop_header('TYPE')
+        with self.assertRaises(FormatException):
+            reader = VisualFormatReader(self.fp)
+
     def test_observer_code(self):
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.observer_code, 'XYZ')
