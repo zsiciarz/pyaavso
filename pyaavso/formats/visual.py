@@ -87,3 +87,4 @@ class VisualFormatReader(object):
         except KeyError:
             raise FormatException('DATE parameter is required')
         self.software = headers.get('SOFTWARE', '')
+        self.delimiter = str(headers.get('DELIM', ','))
