@@ -181,3 +181,18 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self._drop_header('SOFTWARE')
         reader = VisualFormatReader(self.fp)
         self.assertEqual(reader.software, '')
+
+    def test_delimiter(self):
+        """
+        Check that the delimiter character is read correctly.
+        """
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.delimiter, str(','))
+
+    def test_missing_delimiter(self):
+        """
+        Check that in case of missing delimiter, a comma is assumed.
+        """
+        self._drop_header('DELIM')
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.delimiter, str(','))
