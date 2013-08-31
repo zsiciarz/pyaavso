@@ -87,12 +87,15 @@ class VisualFormatReader(object):
         to be visual.
         """
         headers = {}
+        data = []
         for line in fp:
             line = line.strip()
             if line and line[0] == '#' and '=' in line:
                 header_str = line[1:]
                 key, value = header_str.split('=', 1)
                 headers[key] = value
+            elif line and line[0] != '#':
+                data.append(line)
         if 'TYPE' not in headers:
             raise FormatException('TYPE parameter is required')
         try:
@@ -106,3 +109,8 @@ class VisualFormatReader(object):
         self.software = headers.get('SOFTWARE', '')
         self.delimiter = str(headers.get('DELIM', ','))
         self.obstype = headers.get('OBSTYPE', 'Visual')
+        self.reader = csv.reader(data, delimiter=self.delimiter)
+
+    def __iter__(self):
+        for row in self.reader:
+            yield row
