@@ -86,3 +86,4 @@ class VisualFormatReader(object):
             self.date_format = headers['DATE']
         except KeyError:
             raise FormatException('DATE parameter is required')
+        self.software = headers.get('SOFTWARE', '')
