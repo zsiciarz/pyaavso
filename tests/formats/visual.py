@@ -166,3 +166,18 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self._drop_header('DATE')
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(self.fp)
+
+    def test_software(self):
+        """
+        Check that SOFTWARE header is read correctly.
+        """
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.software, 'Notepad')
+
+    def test_missing_software(self):
+        """
+        Check that SOFTWARE header is not required.
+        """
+        self._drop_header('SOFTWARE')
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.software, '')
