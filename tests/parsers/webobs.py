@@ -88,3 +88,19 @@ class WebObsResultsParserTestCase(unittest.TestCase):
         parser = WebObsResultsParser(RESULTS_HTML)
         observations = parser.get_observations()
         self.assertEqual(len(observations), 1)
+
+    def test_observation_data(self):
+        """
+        Check that parsed observation data are valid and meaningful.
+        """
+        parser = WebObsResultsParser(RESULTS_HTML)
+        observations = parser.get_observations()
+        observation = observations[0]
+        self.assertEqual(observation['name'], 'NOVA DEL 2013')
+        self.assertEqual(observation['date'], '2456529.3194')
+        self.assertEqual(observation['magnitude'], '5.9')
+        self.assertEqual(observation['obscode'], 'SYF')
+        self.assertEqual(observation['comp1'], '57')
+        self.assertEqual(observation['chart'], '12582DRJ')
+        self.assertEqual(observation['comment_code'], '')
+        self.assertEqual(observation['notes'], '')
