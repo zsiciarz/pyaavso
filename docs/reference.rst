@@ -15,4 +15,5 @@ Subpackages
 .. toctree::
 
     pyaavso.formats
+    pyaavso.parsers
 
