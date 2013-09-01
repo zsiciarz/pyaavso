@@ -88,4 +88,4 @@ class WebObsResultsParserTestCase(unittest.TestCase):
     Tests for WebObsResultsParser class.
     """
     def test_dummy(self):
-        parser = WebObsResultsParser()
+        parser = WebObsResultsParser(RESULTS_HTML)
