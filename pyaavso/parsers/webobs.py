@@ -1,6 +1,12 @@
 from __future__ import unicode_literals
 
 from lxml import html
+from lxml.etree import XPath
+
+
+TBODY_XPATH = XPath('//table[@class="observations"]/tbody')
+OBSERVATION_XPATH = XPath('./td//text()[normalize-space()]')
+DETAILS_XPATH = XPath('./td/div/table/tbody/tr/td//text()[normalize-space()]')
 
 
 def _clean_cell(value):
@@ -17,12 +23,13 @@ class WebObsResultsParser(object):
     The parser reads an HTML page with search results (presented as a table)
     and parses the table into a list of observations.
     """
+
     def __init__(self, html_source):
         """
         Creates the parser and feeds it source code of the page.
         """
         root = html.fromstring(html_source)
-        self.tbody = root.xpath('//table[@class="observations"]/tbody')[0]
+        self.tbody = TBODY_XPATH(root)[0]
 
     def get_observations(self):
         """
@@ -33,12 +40,12 @@ class WebObsResultsParser(object):
         observations = []
         for row_observation, row_details in zip(rows[::2], rows[1::2]):
             data = {}
-            cells = row_observation.xpath('./td//text()[normalize-space()]')
+            cells = OBSERVATION_XPATH(row_observation)
             data['name'] = _clean_cell(cells[0])
             data['date'] = _clean_cell(cells[1])
             data['magnitude'] = _clean_cell(cells[3])
             data['obscode'] = _clean_cell(cells[6])
-            cells = row_details.xpath('./td/div/table/tbody/tr/td//text()[normalize-space()]')
+            cells = DETAILS_XPATH(row_details)
             data['comp1'] = _clean_cell(cells[0])
             data['chart'] = _clean_cell(cells[3]).replace('None', '')
             data['comment_code'] = _clean_cell(cells[4])
