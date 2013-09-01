@@ -3,6 +3,13 @@ from __future__ import unicode_literals
 from lxml import html
 
 
+def _clean_cell(value):
+    """
+    Removes dashes and strips whitespace from the given value.
+    """
+    return value.replace('\u2014', '').strip()
+
+
 class WebObsResultsParser(object):
     """
     Parser for WebObs search results page.
@@ -27,14 +34,14 @@ class WebObsResultsParser(object):
         for row_observation, row_details in zip(rows[::2], rows[1::2]):
             data = {}
             cells = row_observation.xpath('./td//text()[normalize-space()]')
-            data['name'] = cells[0].replace('\u2014', '').strip()
-            data['date'] = cells[1]
-            data['magnitude'] = cells[3]
-            data['obscode'] = cells[6]
+            data['name'] = _clean_cell(cells[0])
+            data['date'] = _clean_cell(cells[1])
+            data['magnitude'] = _clean_cell(cells[3])
+            data['obscode'] = _clean_cell(cells[6])
             cells = row_details.xpath('./td/div/table/tbody/tr/td//text()[normalize-space()]')
-            data['comp1'] = cells[0].replace('\u2014', '').strip()
-            data['chart'] = cells[3].replace('None', '').replace('\u2014', '').strip()
-            data['comment_code'] = cells[4].replace('\u2014', '').strip()
-            data['notes'] = cells[5].replace('\u2014', '').strip()
+            data['comp1'] = _clean_cell(cells[0])
+            data['chart'] = _clean_cell(cells[3]).replace('None', '')
+            data['comment_code'] = _clean_cell(cells[4])
+            data['notes'] = _clean_cell(cells[5])
             observations.append(data)
         return observations
