@@ -67,16 +67,24 @@ class VisualFormatWriter(object):
         if isinstance(observation_data, (list, tuple)):
             row = observation_data
         else:
-            row = []
-            row.append(observation_data['name'])
-            row.append(observation_data['date'])
-            row.append(observation_data['magnitude'])
-            row.append(observation_data['comment_code'])
-            row.append(observation_data['comp1'])
-            row.append(observation_data['comp2'])
-            row.append(observation_data['chart'])
-            row.append(observation_data['notes'])
+            row = self.dict_to_row(observation_data)
         self.writer.writerow(row)
+
+    def dict_to_row(self, observation_data):
+        """
+        Takes a dictionary of observation data and converts it to a list
+        of fields according to AAVSO visual format specification.
+        """
+        row = []
+        row.append(observation_data['name'])
+        row.append(observation_data['date'])
+        row.append(observation_data['magnitude'])
+        row.append(observation_data['comment_code'])
+        row.append(observation_data['comp1'])
+        row.append(observation_data['comp2'])
+        row.append(observation_data['chart'])
+        row.append(observation_data['notes'])
+        return row
 
 
 class VisualFormatReader(object):
