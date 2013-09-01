@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from lxml import html
+
 
 class WebObsResultsParser(object):
     """
@@ -12,3 +14,5 @@ class WebObsResultsParser(object):
         """
         Creates the parser and feeds it source code of the page.
         """
+        root = html.fromstring(html_source)
+        self.tbody = root.xpath('//table[@class="observations"]/tbody')[0]
