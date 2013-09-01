@@ -6,7 +6,7 @@ from lxml.etree import XPath
 
 TBODY_XPATH = XPath('//table[@class="observations"]/tbody')
 OBSERVATION_XPATH = XPath('./td//text()[normalize-space()]')
-DETAILS_XPATH = XPath('./td/div/table/tbody/tr/td//text()[normalize-space()]')
+DETAILS_XPATH = XPath('./td/div/table/tbody/tr/td//text()')
 
 
 def _clean_cell(value):
