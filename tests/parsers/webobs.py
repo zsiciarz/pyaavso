@@ -15,8 +15,7 @@ RESULTS_HTML = """
 <table class='observations'>
   <thead>
     <tr>
-      <th><input type='checkbox' id='checkall'/></th>
-      <th class='empty' colspan='2'></th>
+      <th class='empty' colspan='3'></th>
       <th>Star</th>
       <th>JD</th>
       <th>Calendar Date</th>
@@ -29,13 +28,7 @@ RESULTS_HTML = """
   </thead>
   <tbody>
     <tr class='obs tr-even' id='ob-0'>
-  <td><input type='checkbox' name='select-1263099015' class='obscheck' /></td>
-  <td style='padding-right: 3px; padding-left: 5px;'>
-    <a href='/webobs/edit/1263099015'>Edit</a>
-  </td>
-  <td style='padding-right: 5px; padding-left: 3px;'>
-    <a href='/webobs/delete/1263099015'>Delete</a>
-  </td>
+  <td class='empty' colspan='3'></td>
   <td>NOVA DEL 2013</td>
   <td>2456529.3194</td>
   <td>2013 Aug. 24.81940</td>
