@@ -80,5 +80,11 @@ class WebObsResultsParserTestCase(unittest.TestCase):
     """
     Tests for WebObsResultsParser class.
     """
-    def test_dummy(self):
+
+    def test_count_observations(self):
+        """
+        Check that get_observations() returns all observations from the page.
+        """
         parser = WebObsResultsParser(RESULTS_HTML)
+        observations = parser.get_observations()
+        self.assertEqual(len(observations), 1)
