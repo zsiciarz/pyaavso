@@ -80,7 +80,10 @@ class VisualFormatWriter(object):
         row.append(observation_data['name'])
         row.append(observation_data['date'])
         row.append(observation_data['magnitude'])
-        row.append(observation_data['comment_code'])
+        comment_code = observation_data.get('comment_code', 'na')
+        if not comment_code:
+            comment_code = 'na'
+        row.append(comment_code)
         row.append(observation_data['comp1'])
         row.append(observation_data['comp2'])
         row.append(observation_data['chart'])
@@ -160,11 +163,14 @@ class VisualFormatReader(object):
         """
         Converts a raw input record to a dictionary of observation data.
         """
+        comment_code = row[3]
+        if comment_code == 'na':
+            comment_code = ''
         return {
             'name': row[0],
             'date': row[1],
             'magnitude': row[2],
-            'comment_code': row[3],
+            'comment_code': comment_code,
             'comp1': row[4],
             'comp2': row[5],
             'chart': row[6],
