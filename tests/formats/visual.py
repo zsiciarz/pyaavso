@@ -265,3 +265,15 @@ class RoundtripTestCase(unittest.TestCase):
         row = VisualFormatWriter.dict_to_row(data)
         output_data = VisualFormatReader.row_to_dict(row)
         self.assertEqual(output_data, data)
+
+    def test_roundtrip_row(self):
+        """
+        Check that a data row onverted to dict and back to row is the same.
+        """
+        row = [
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', '113', '070613',
+            'This is a test',
+        ]
+        data = VisualFormatReader.row_to_dict(row)
+        output_row = VisualFormatWriter.dict_to_row(data)
+        self.assertEqual(output_row, row)
