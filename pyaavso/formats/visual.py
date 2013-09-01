@@ -28,7 +28,7 @@ class VisualFormatWriter(object):
         ...         'name': 'SS CYG',
         ...         'date': '2450702.1234',
         ...         'magnitude': '<11.1',
-        ...         'comment_code': 'na',
+        ...         'comment_code': '',
         ...         'comp1': '110',
         ...         'comp2': '113',
         ...         'chart': '070613',
