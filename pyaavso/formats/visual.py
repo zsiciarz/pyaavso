@@ -90,7 +90,10 @@ class VisualFormatWriter(object):
             comp2 = 'na'
         row.append(comp2)
         row.append(observation_data['chart'])
-        row.append(observation_data['notes'])
+        notes = observation_data.get('notes', 'na')
+        if not notes:
+            notes = 'na'
+        row.append(notes)
         return row
 
 
@@ -172,6 +175,9 @@ class VisualFormatReader(object):
         comp2 = row[5]
         if comp2 == 'na':
             comp2 = ''
+        notes = row[7]
+        if notes == 'na':
+            notes = ''
         return {
             'name': row[0],
             'date': row[1],
@@ -180,5 +186,5 @@ class VisualFormatReader(object):
             'comp1': row[4],
             'comp2': comp2,
             'chart': row[6],
-            'notes': row[7],
+            'notes': notes,
         }
