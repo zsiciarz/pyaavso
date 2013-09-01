@@ -70,7 +70,8 @@ class VisualFormatWriter(object):
             row = self.dict_to_row(observation_data)
         self.writer.writerow(row)
 
-    def dict_to_row(self, observation_data):
+    @classmethod
+    def dict_to_row(cls, observation_data):
         """
         Takes a dictionary of observation data and converts it to a list
         of fields according to AAVSO visual format specification.
@@ -154,7 +155,8 @@ class VisualFormatReader(object):
         for row in self.reader:
             yield self.row_to_dict(row)
 
-    def row_to_dict(self, row):
+    @classmethod
+    def row_to_dict(cls, row):
         """
         Converts a raw input record to a dictionary of observation data.
         """
