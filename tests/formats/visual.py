@@ -241,3 +241,27 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self.assertEqual(observation['name'], 'SS CYG')
         self.assertEqual(observation['comp1'], '110')
         self.assertEqual(observation['comp2'], '113')
+
+
+class RoundtripTestCase(unittest.TestCase):
+    """
+    Tests for roundtrip conversion between observation data and raw records.
+    """
+
+    def test_roundtrip_dict(self):
+        """
+        Check that observation converted to row and back to dict is the same.
+        """
+        data = {
+            'name': 'SS CYG',
+            'date': '2450702.1234',
+            'magnitude': '<11.1',
+            'comment_code': 'na',
+            'comp1': '110',
+            'comp2': '113',
+            'chart': '070613',
+            'notes': 'This is a test',
+        }
+        row = VisualFormatWriter.dict_to_row(data)
+        output_data = VisualFormatReader.row_to_dict(row)
+        self.assertEqual(output_data, data)
