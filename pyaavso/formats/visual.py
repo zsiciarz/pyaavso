@@ -85,7 +85,10 @@ class VisualFormatWriter(object):
             comment_code = 'na'
         row.append(comment_code)
         row.append(observation_data['comp1'])
-        row.append(observation_data['comp2'])
+        comp2 = observation_data.get('comp2', 'na')
+        if not comp2:
+            comp2 = 'na'
+        row.append(comp2)
         row.append(observation_data['chart'])
         row.append(observation_data['notes'])
         return row
@@ -166,13 +169,16 @@ class VisualFormatReader(object):
         comment_code = row[3]
         if comment_code == 'na':
             comment_code = ''
+        comp2 = row[5]
+        if comp2 == 'na':
+            comp2 = ''
         return {
             'name': row[0],
             'date': row[1],
             'magnitude': row[2],
             'comment_code': comment_code,
             'comp1': row[4],
-            'comp2': row[5],
+            'comp2': comp2,
             'chart': row[6],
             'notes': row[7],
         }
