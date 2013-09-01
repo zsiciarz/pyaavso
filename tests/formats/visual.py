@@ -270,6 +270,27 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         rows = [row for row in reader]
         self.assertEqual(len(rows), 2)
 
+    def test_normalized_na_fields(self):
+        """
+        Check that 'na' values are normalized to empty strings.
+        """
+        row = [
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', '070613',
+            'na',
+        ]
+        data = VisualFormatReader.row_to_dict(row)
+        expected_data = {
+            'name': 'SS CYG',
+            'date': '2450702.1234',
+            'magnitude': '<11.1',
+            'comment_code': '',
+            'comp1': '110',
+            'comp2': '',
+            'chart': '070613',
+            'notes': '',
+        }
+        self.assertEqual(data, expected_data)
+
     def test_row_dictionary(self):
         """
         Check that an observation is returned as a dictionary of values.
