@@ -82,6 +82,45 @@ class VisualFormatWriterTestCase(unittest.TestCase):
             "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
         )
 
+    def test_normalize_empty_fields(self):
+        """
+        Check that dict_to_row() inserts 'na' values for empty fields.
+        """
+        data = {
+            'name': 'SS CYG',
+            'date': '2450702.1234',
+            'magnitude': '<11.1',
+            'comment_code': '',
+            'comp1': '110',
+            'comp2': '',
+            'chart': '070613',
+            'notes': '',
+        }
+        row = VisualFormatWriter.dict_to_row(data)
+        expected_row = [
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', '070613',
+            'na',
+        ]
+        self.assertEqual(row, expected_row)
+
+    def test_normalize_mising_fields(self):
+        """
+        Check that dict_to_row() inserts 'na' values for missing fields.
+        """
+        data = {
+            'name': 'SS CYG',
+            'date': '2450702.1234',
+            'magnitude': '<11.1',
+            'comp1': '110',
+            'chart': '070613',
+        }
+        row = VisualFormatWriter.dict_to_row(data)
+        expected_row = [
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', '070613',
+            'na',
+        ]
+        self.assertEqual(row, expected_row)
+
     def test_write_dict(self):
         """
         Check that dictionary of observation data can be written to file.
