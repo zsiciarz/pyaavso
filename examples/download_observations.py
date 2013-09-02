@@ -3,6 +3,7 @@ from __future__ import unicode_literals, print_function
 import sys
 import logging
 
+from pyaavso.formats import VisualFormatWriter
 from pyaavso.utils import download_observations
 
 
@@ -18,3 +19,9 @@ if __name__ == '__main__':
     else:
         observations = download_observations(observer_code)
         print('All done.\nDownloaded %d observations.' % len(observations))
+        filename = '%s.txt' % observer_code
+        with open(filename, 'wb') as fp:
+            writer = VisualFormatWriter(fp, observer_code)
+            for observation in observations:
+                writer.writerow(observation)
+        print('Observations written to file %s.' % filename)
