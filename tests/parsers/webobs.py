@@ -75,6 +75,17 @@ RESULTS_HTML = """
 </html>
 """
 
+EMPTY_RESULTS_HTML = """
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  <p>There were no results for this search.</p>
+  </body>
+</html>
+"""
+
 
 class WebObsResultsParserTestCase(unittest.TestCase):
     """
@@ -104,3 +115,11 @@ class WebObsResultsParserTestCase(unittest.TestCase):
         self.assertEqual(observation['chart'], '12582DRJ')
         self.assertEqual(observation['comment_code'], '')
         self.assertEqual(observation['notes'], '')
+
+    def test_no_results(self):
+        """
+        Check that parser returns no observations for empty results page.
+        """
+        parser = WebObsResultsParser(EMPTY_RESULTS_HTML)
+        observations = parser.get_observations()
+        self.assertEqual(len(observations), 0)

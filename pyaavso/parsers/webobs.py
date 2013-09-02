@@ -28,14 +28,18 @@ class WebObsResultsParser(object):
         """
         Creates the parser and feeds it source code of the page.
         """
-        root = html.fromstring(html_source)
-        self.tbody = TBODY_XPATH(root)[0]
+        self.empty = "There were no results for this search." in html_source
+        if not self.empty:
+            root = html.fromstring(html_source)
+            self.tbody = TBODY_XPATH(root)[0]
 
     def get_observations(self):
         """
         Parses the HTML table into a list of dictionaries, each of which
         represents a single observation.
         """
+        if self.empty:
+            return []
         rows = list(self.tbody)
         observations = []
         for row_observation, row_details in zip(rows[::2], rows[1::2]):
