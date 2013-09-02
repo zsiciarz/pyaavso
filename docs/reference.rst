@@ -16,4 +16,5 @@ Subpackages
 
     pyaavso.formats
     pyaavso.parsers
+    pyaavso.utils
 
