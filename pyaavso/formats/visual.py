@@ -84,12 +84,18 @@ class VisualFormatWriter(object):
         if not comment_code:
             comment_code = 'na'
         row.append(comment_code)
-        row.append(observation_data['comp1'])
+        comp1 = observation_data.get('comp1', 'na')
+        if not comp1:
+            comp1 = 'na'
+        row.append(comp1)
         comp2 = observation_data.get('comp2', 'na')
         if not comp2:
             comp2 = 'na'
         row.append(comp2)
-        row.append(observation_data['chart'])
+        chart = observation_data.get('chart', 'na')
+        if not chart:
+            chart = 'na'
+        row.append(chart)
         notes = observation_data.get('notes', 'na')
         if not notes:
             notes = 'na'
