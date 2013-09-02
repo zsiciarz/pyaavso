@@ -33,6 +33,7 @@ def download_observations(observer_code):
         })
         parser = WebObsResultsParser(response.content)
         observations.extend(parser.get_observations())
+        # kinda silly, but there's no need for lxml machinery here
         if '>Next</a>' not in response.content:
             break
         page_number += 1
