@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import logging
+
 import requests
 
 from .parsers import WebObsResultsParser
@@ -12,6 +13,14 @@ WEBOBS_RESULTS_URL = 'http://www.aavso.org/apps/webobs/results/'
 
 
 def download_observations(observer_code):
+    """
+    Downloads all variable star observations by a given observer.
+
+    Performs a series of HTTP requests to AAVSO's WebObs search and
+    downloads the results page by page. Each page is then passed to
+    ``WebObsResultsParser`` and parse results are added to the final
+    observation list.
+    """
     page_number = 1
     observations = []
     while True:
