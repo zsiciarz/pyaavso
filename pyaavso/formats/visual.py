@@ -130,8 +130,9 @@ class VisualFormatReader(object):
         """
         Creates the reader instance and reads file headers.
 
-        Raises ``FormatException`` when any of the required headers could not
-        be found in input. The following header parameters are required:
+        Raises :py:exc:`~pyaavso.format.visual.FormatException` when any of
+        the required headers could not be found in input. The following header
+        parameters are required:
 
          * *TYPE* - always 'Visual', yet must be specified in file
          * *OBSCODE* - official AAVSO-assigned observer code
