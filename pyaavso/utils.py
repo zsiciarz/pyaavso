@@ -18,8 +18,8 @@ def download_observations(observer_code):
 
     Performs a series of HTTP requests to AAVSO's WebObs search and
     downloads the results page by page. Each page is then passed to
-    ``WebObsResultsParser`` and parse results are added to the final
-    observation list.
+    :py:class:`~pyaavso.parsers.webobs.WebObsResultsParser` and parse results
+    are added to the final observation list.
     """
     page_number = 1
     observations = []
