@@ -20,7 +20,8 @@ class VisualFormatWriter(object):
 
     To write your observations into the data file, you first need to create
     the writer, passing to it the destination file and your observer code.
-    Then call ``writerow()`` for every single observation, for example:
+    Then call :py:meth:`~VisualFormatWriter.writerow` for every single
+    observation, for example:
 
         >>> with open('data.txt', 'wb') as fp:
         ...     writer = VisualFormatWriter(fp, 'XYZ')
