@@ -45,6 +45,12 @@ class VisualFormatWriter(object):
         Creates the writer which will write observations into the file-like
         object given in first parameter. The only other required parameter
         is the official AAVSO-assigned observer code.
+
+        :param fp: file-like object to write observations into
+        :param observer_code: AAVSO observer code
+        :param delimiter: field delimiter (set as DELIM header)
+        :param date_format: observation date format (one of *JD* or *Excel*)
+        :param obstype: observation type (*Visual* or *PTG*)
         """
         self.observer_code = observer_code
         self.date_format = date_format
@@ -64,6 +70,8 @@ class VisualFormatWriter(object):
         converted to a list to keep a consisted field order (as described
         in format specification). Otherwise it is assumed that the data
         is a raw record ready to be written to file.
+
+        :param observation_data: a single observation as a dictionary or list
         """
         if isinstance(observation_data, (list, tuple)):
             row = observation_data
@@ -76,6 +84,9 @@ class VisualFormatWriter(object):
         """
         Takes a dictionary of observation data and converts it to a list
         of fields according to AAVSO visual format specification.
+
+        :param cls: current class
+        :param observation_data: a single observation as a dictionary
         """
         row = []
         row.append(observation_data['name'])
