@@ -153,6 +153,8 @@ class VisualFormatReader(object):
         values, eg. the default delimiter is a comma, when not specified
         in headers. Without the *OBSTYPE* header, observations are assumed
         to be visual.
+
+        :param fp: a file-like object from which data will be read
         """
         headers = {}
         data = []
@@ -187,6 +189,9 @@ class VisualFormatReader(object):
     def row_to_dict(cls, row):
         """
         Converts a raw input record to a dictionary of observation data.
+
+        :param cls: current class
+        :param row: a single observation as a list or tuple
         """
         comment_code = row[3]
         if comment_code == 'na':
