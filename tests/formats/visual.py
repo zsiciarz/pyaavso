@@ -78,7 +78,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         writer.writerow(data)
         lines = self.fp.getvalue().splitlines()
         self.assertEqual(
-            lines[5],
+            lines[6],
             "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
         )
 
@@ -139,7 +139,7 @@ class VisualFormatWriterTestCase(unittest.TestCase):
         writer.writerow(data)
         lines = self.fp.getvalue().splitlines()
         self.assertEqual(
-            lines[5],
+            lines[6],
             "SS CYG,2450702.1234,<11.1,na,110,113,070613,This is a test"
         )
 
