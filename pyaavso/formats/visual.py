@@ -195,19 +195,19 @@ class VisualFormatReader(object):
         :param row: a single observation as a list or tuple
         """
         comment_code = row[3]
-        if comment_code == 'na':
+        if comment_code.lower() == 'na':
             comment_code = ''
         comp1 = row[4]
-        if comp1 == 'na':
+        if comp1.lower() == 'na':
             comp1 = ''
         comp2 = row[5]
-        if comp2 == 'na':
+        if comp2.lower() == 'na':
             comp2 = ''
         chart = row[6]
-        if chart == 'na':
+        if chart.lower() == 'na':
             chart = ''
         notes = row[7]
-        if notes == 'na':
+        if notes.lower() == 'na':
             notes = ''
         return {
             'name': row[0],
