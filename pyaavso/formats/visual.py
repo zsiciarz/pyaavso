@@ -58,6 +58,7 @@ class VisualFormatWriter(object):
         fp.write('#TYPE=Visual\n')
         fp.write('#OBSCODE=%s\n' % observer_code)
         fp.write("#SOFTWARE=pyaavso %s\n" % pyaavso.get_version())
+        fp.write("#DELIM=%s\n" % delimiter)
         fp.write("#DATE=%s\n" % date_format.upper())
         fp.write("#OBSTYPE=%s\n" % obstype)
         self.writer = csv.writer(fp, delimiter=delimiter)
