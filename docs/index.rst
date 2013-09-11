@@ -24,9 +24,29 @@ Features
 Installation
 ============
 
-Use `pip` to install latest release available at PyPI::
+Use ``pip`` to install latest release available at PyPI::
 
     pip install pyaavso
+
+Usage
+=====
+
+The following code uses :class:`~pyaavso.formats.visual.VisualFormatWriter`
+to report a single observation of **SS Cyg** between the outbursts.
+
+    >>> from pyaavso.formats import VisualFormatWriter
+    >>> observer_code = 'XYZ'
+    >>> with open('data.txt', 'wb') as fp:
+    ...     writer = VisualFormatWriter(fp, observer_code)
+    ...     writer.writerow({
+    ...         'name': 'SS CYG',
+    ...         'date': '2450702.1234',
+    ...         'magnitude': '<11.0',
+    ...         'comp1': '110',
+    ...         'chart': '070613',
+    ...     })
+
+The ``data.txt`` file can be now submitted to AAVSO.
 
 Contents
 ========
