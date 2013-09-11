@@ -48,12 +48,15 @@ to report a single observation of **SS Cyg** between the outbursts.
 
 The ``data.txt`` file can be now submitted to AAVSO.
 
+See :doc:`usage` for more examples.
+
 Contents
 ========
 
 .. toctree::
    :maxdepth: 4
 
+   usage
    reference
 
 
