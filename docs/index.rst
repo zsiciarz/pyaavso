@@ -11,6 +11,13 @@ pyaavso
 `AAVSO <http://www.aavso.org>`_ (American Association of Variable Star
 Observers) data. The library is compatible with both Python 2.7 and 3.3+.
 
+Installation
+============
+
+Use `pip` to install latest release available at PyPI::
+
+    pip install pyaavso
+
 Contents
 ========
 
