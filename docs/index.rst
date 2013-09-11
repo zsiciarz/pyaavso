@@ -11,6 +11,16 @@ pyaavso
 `AAVSO <http://www.aavso.org>`_ (American Association of Variable Star
 Observers) data. The library is compatible with both Python 2.7 and 3.3+.
 
+Features
+========
+
+ * reading and writing variable star observations in AAVSO's
+   `Visual File Format`_
+ * downloading all observation data for a given observer
+
+.. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
+
+
 Installation
 ============
 
