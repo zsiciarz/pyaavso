@@ -18,6 +18,8 @@ Features
   `Visual File Format`_
 * downloading all observation data for a given observer
 
+See the :ref:`development-roadmap` for future plans.
+
 .. _`Visual File Format`: http://www.aavso.org/aavso-visual-file-format
 
 

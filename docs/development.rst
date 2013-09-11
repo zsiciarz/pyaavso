@@ -2,6 +2,8 @@
 Development
 ===========
 
+.. _development-roadmap:
+
 Feature roadmap
 ===============
 
