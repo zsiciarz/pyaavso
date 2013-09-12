@@ -275,7 +275,7 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         Check that 'na' values are normalized to empty strings.
         """
         row = [
-            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', '070613',
+            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', 'na',
             'na',
         ]
         data = VisualFormatReader.row_to_dict(row)
@@ -286,7 +286,7 @@ class VisualFormatReaderTestCase(unittest.TestCase):
             'comment_code': '',
             'comp1': '110',
             'comp2': '',
-            'chart': '070613',
+            'chart': '',
             'notes': '',
         }
         self.assertEqual(data, expected_data)
