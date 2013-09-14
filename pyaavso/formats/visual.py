@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import csv
+import itertools
 
 import pyaavso
 
@@ -158,7 +159,6 @@ class VisualFormatReader(object):
         :param fp: a file-like object from which data will be read
         """
         headers = {}
-        data = []
         for line in fp:
             line = line.strip()
             if line and line[0] == '#' and '=' in line:
@@ -166,7 +166,9 @@ class VisualFormatReader(object):
                 key, value = header_str.split('=', 1)
                 headers[key] = value
             elif line and line[0] != '#':
-                data.append(line)
+                # first non-comment line marks the beggining of data section
+                break
+        # validate headers
         if 'TYPE' not in headers:
             raise FormatException('TYPE parameter is required')
         try:
@@ -180,6 +182,8 @@ class VisualFormatReader(object):
         self.software = headers.get('SOFTWARE', '')
         self.delimiter = str(headers.get('DELIM', ','))
         self.obstype = headers.get('OBSTYPE', 'Visual')
+        # prepend the peeked line and continue iteration
+        data = itertools.chain([line], fp)
         self.reader = csv.reader(data, delimiter=self.delimiter)
 
     def __iter__(self):
