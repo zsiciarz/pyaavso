@@ -13,6 +13,9 @@ pyaavso
 .. image:: https://travis-ci.org/zsiciarz/pyaavso.png?branch=master
     :target: https://travis-ci.org/zsiciarz/pyaavso
 
+.. image:: https://coveralls.io/repos/zsiciarz/pyaavso/badge.png?branch=master
+    :target: https://coveralls.io/r/zsiciarz/pyaavso?branch=master
+
 A Python library for working with `AAVSO <http://www.aavso.org>`_ (American
 Association of Variable Star Observers) data.
 
