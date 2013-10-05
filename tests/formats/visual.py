@@ -111,13 +111,12 @@ class VisualFormatWriterTestCase(unittest.TestCase):
             'name': 'SS CYG',
             'date': '2450702.1234',
             'magnitude': '<11.1',
-            'comp1': '110',
-            'chart': '070613',
+            'comp1': '',
+            'chart': '',
         }
         row = VisualFormatWriter.dict_to_row(data)
         expected_row = [
-            'SS CYG', '2450702.1234', '<11.1', 'na', '110', 'na', '070613',
-            'na',
+            'SS CYG', '2450702.1234', '<11.1', 'na', 'na', 'na', 'na', 'na',
         ]
         self.assertEqual(row, expected_row)
 
