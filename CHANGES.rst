@@ -2,6 +2,11 @@
 Changelog
 =========
 
+0.1.2
+=====
+
+* added wheel distribution
+
 0.1.1
 =====
 
