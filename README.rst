@@ -2,12 +2,12 @@
 pyaavso
 =======
 
-.. image:: https://pypip.in/v/pyaavso/badge.png
-    :target: https://crate.io/packages/pyaavso/
+.. image:: https://pypip.in/version/pyaavso/badge.png
+    :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Latest PyPI version
 
-.. image:: https://pypip.in/d/pyaavso/badge.png
-    :target: https://crate.io/packages/pyaavso/
+.. image:: https://pypip.in/download/pyaavso/badge.png
+    :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Number of PyPI downloads
 
 .. image:: https://travis-ci.org/zsiciarz/pyaavso.png?branch=master
