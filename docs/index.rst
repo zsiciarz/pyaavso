@@ -14,6 +14,7 @@ Documentation
    usage
    reference
    development
+   changes
 
 Indices and tables
 ------------------
