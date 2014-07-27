@@ -5,6 +5,13 @@
 
 .. include:: ../README.rst
 
+Gittip
+------
+
+Like this project? You can support it via `Gittip`_!
+
+.. _`Gittip`: https://www.gittip.com/zsiciarz
+
 Documentation
 -------------
 
