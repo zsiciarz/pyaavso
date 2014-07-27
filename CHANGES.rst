@@ -2,6 +2,11 @@
 Changelog
 =========
 
+0.1.4
+=====
+
+* minor packaging and documentation fixes
+
 0.1.3
 =====
 
