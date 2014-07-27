@@ -73,6 +73,7 @@ Resources
 
  * `Documentation <http://pyaavso.rtfd.org>`_
  * `Issue tracker <https://github.com/zsiciarz/pyaavso/issues>`_
+ * `CI server <https://travis-ci.org/zsiciarz/pyaavso>`_
 
 Author
 ------
