@@ -2,7 +2,7 @@
 omit =
     pyaavso/__init__.py
     .tox/*
-    ../src/*
-    ../lib/*
+    */src/*
+    */lib/*
     */test*
     /home/travis/virtualenv/*
