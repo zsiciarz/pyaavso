@@ -2,6 +2,12 @@
 Changelog
 =========
 
+0.1.3
+=====
+
+* Python 3.4 compatibility
+* more specific Python version classifiers in setup.py
+
 0.1.2
 =====
 
