@@ -51,8 +51,8 @@ Use ``pip`` to install latest release available at PyPI::
 Usage
 -----
 
-The following code uses :class:`~pyaavso.formats.visual.VisualFormatWriter`
-to report a single observation of **SS Cyg** between the outbursts.
+The following code uses ``VisualFormatWriter`` to report a single
+observation of **SS Cyg** between the outbursts.
 
     >>> from pyaavso.formats import VisualFormatWriter
     >>> observer_code = 'XYZ'
