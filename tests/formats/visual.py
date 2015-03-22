@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 import unittest
-from six import StringIO
+from six import BytesIO, StringIO
 
 import pyaavso
 from pyaavso.formats.visual import VisualFormatWriter, VisualFormatReader, \
@@ -174,6 +174,11 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         self._drop_header('TYPE')
         with self.assertRaises(FormatException):
             reader = VisualFormatReader(self.fp)
+
+    def test_bytes_input(self):
+        self.fp = BytesIO("\n".join(self.lines).encode('utf-8'))
+        reader = VisualFormatReader(self.fp)
+        self.assertEqual(reader.observer_code, 'XYZ')
 
     def test_observer_code(self):
         """
