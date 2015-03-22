@@ -2,6 +2,11 @@
 Changelog
 =========
 
+0.1.5
+=====
+
+* fixed VisualFormatReader bug on Python 3 when input is bytes, not string
+
 0.1.4
 =====
 
