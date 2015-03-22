@@ -16,8 +16,8 @@ setup(
     license='MIT',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
-    install_requires=['lxml>=2.0', 'requests>=1.0'],
-    tests_require=['nose', 'six'],
+    install_requires=['lxml>=2.0', 'requests>=1.0', 'six>=1.0'],
+    tests_require=['nose'],
     test_suite='nose.collector',
     platforms='any',
     classifiers=[
