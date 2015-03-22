@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 import csv
 import itertools
 
+import six
+
 import pyaavso
 
 
@@ -160,6 +162,8 @@ class VisualFormatReader(object):
         """
         headers = {}
         for line in fp:
+            if isinstance(line, six.binary_type):
+                line = line.decode('utf-8')
             line = line.strip()
             if line and line[0] == '#' and '=' in line:
                 header_str = line[1:]
