@@ -1,12 +1,15 @@
 sudo: false
 language: python
+cache:
+  directories:
+    - $HOME/.cache/pip
 env:
   - TOXENV=py27
   - TOXENV=py33
   - TOXENV=py34
   - TOXENV=coverage
 install:
-  - pip install tox
+  - pip install tox pip setuptools wheel --upgrade
   - if [ "$TOXENV" = "coverage" ]; then pip install coveralls; fi
 script:
   - export PYTHONPATH=$PYTHONPATH:`pwd`
