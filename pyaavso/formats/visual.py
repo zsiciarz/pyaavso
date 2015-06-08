@@ -136,7 +136,7 @@ class VisualFormatReader(object):
         >>> with open('data.txt', 'rb') as fp:
         ...     reader = VisualFormatReader(fp)
         ...     for observation in reader:
-        ...         print '%(name)s %(magnitude)s' % observation
+        ...         print('%(name)s %(magnitude)s' % observation)
         SS Cyg 10.0
         RZ Cas 6.4
     """
