@@ -6,19 +6,19 @@ pyaavso
     :target: https://requires.io/github/zsiciarz/pyaavso/requirements/?branch=master
     :alt: Requirements Status
 
-.. image:: https://pypip.in/version/pyaavso/badge.svg
+.. image:: https://img.shields.io/pypi/v/pyaavso.svg
     :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Latest PyPI version
 
-.. image:: https://pypip.in/download/pyaavso/badge.svg
+.. image:: https://img.shields.io/pypi/dm/pyaavso.svg
     :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Number of PyPI downloads
 
-.. image:: https://pypip.in/py_versions/pyaavso/badge.svg
+.. image:: https://img.shields.io/pypi/pyversions/pyaavso.svg
     :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Supported Python versions
 
-.. image:: https://pypip.in/wheel/pyaavso/badge.svg
+.. image:: https://img.shields.io/pypi/wheel/pyaavso.svg
     :target: https://pypi.python.org/pypi/pyaavso/
     :alt: Wheel Status
 
