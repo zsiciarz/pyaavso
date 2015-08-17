@@ -1,5 +1,5 @@
 import unittest
-from six import BytesIO, StringIO
+from io import BytesIO, StringIO
 
 import pyaavso
 from pyaavso.formats.visual import VisualFormatWriter, VisualFormatReader, \
