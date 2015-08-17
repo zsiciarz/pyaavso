@@ -29,6 +29,7 @@ def download_observations(observer_code):
             'obs_types': 'all',
             'page': page_number,
         })
+        logger.debug(response.request.url)
         parser = WebObsResultsParser(response.text)
         observations.extend(parser.get_observations())
         # kinda silly, but there's no need for lxml machinery here
