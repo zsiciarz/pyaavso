@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from lxml import html
 from lxml.etree import XPath
 
