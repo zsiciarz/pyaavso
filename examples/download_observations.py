@@ -18,7 +18,7 @@ if __name__ == '__main__':
         observations = download_observations(observer_code)
         print('All done.\nDownloaded %d observations.' % len(observations))
         filename = '%s.txt' % observer_code
-        with open(filename, 'wb') as fp:
+        with open(filename, 'w') as fp:
             writer = VisualFormatWriter(fp, observer_code)
             for observation in observations:
                 writer.writerow(observation)
