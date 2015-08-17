@@ -17,8 +17,7 @@ setup(
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     install_requires=['lxml>=2.0', 'requests>=1.0', 'six>=1.0'],
-    tests_require=['nose'],
-    test_suite='nose.collector',
+    tests_require=['pytest'],
     platforms='any',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
