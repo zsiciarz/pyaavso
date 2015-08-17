@@ -2,7 +2,7 @@
 pyaavso
 =======
 
-.. image:: https://requires.io/github/zsiciarz/pyaavso/requirements.png?branch=master
+.. image:: https://requires.io/github/zsiciarz/pyaavso/requirements.svg?branch=master
     :target: https://requires.io/github/zsiciarz/pyaavso/requirements/?branch=master
     :alt: Requirements Status
 
@@ -25,7 +25,7 @@ pyaavso
 .. image:: https://travis-ci.org/zsiciarz/pyaavso.svg?branch=master
     :target: https://travis-ci.org/zsiciarz/pyaavso
 
-.. image:: https://coveralls.io/repos/zsiciarz/pyaavso/badge.png?branch=master
+.. image:: https://coveralls.io/repos/zsiciarz/pyaavso/badge.svg?branch=master
     :target: https://coveralls.io/r/zsiciarz/pyaavso?branch=master
 
 **pyaavso** is a Python library for working with
