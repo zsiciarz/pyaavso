@@ -31,10 +31,10 @@ def download_observations(observer_code):
             'obs_types': 'all',
             'page': page_number,
         })
-        parser = WebObsResultsParser(response.content)
+        parser = WebObsResultsParser(response.text)
         observations.extend(parser.get_observations())
         # kinda silly, but there's no need for lxml machinery here
-        if '>Next</a>' not in response.content:
+        if '>Next</a>' not in response.text:
             break
         page_number += 1
     return observations
