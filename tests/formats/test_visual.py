@@ -228,7 +228,7 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         Check that the delimiter character is read correctly.
         """
         reader = VisualFormatReader(self.fp)
-        self.assertEqual(reader.delimiter, str(','))
+        self.assertEqual(reader.delimiter, ',')
 
     def test_missing_delimiter(self):
         """
@@ -236,14 +236,14 @@ class VisualFormatReaderTestCase(unittest.TestCase):
         """
         self._drop_header('DELIM')
         reader = VisualFormatReader(self.fp)
-        self.assertEqual(reader.delimiter, str(','))
+        self.assertEqual(reader.delimiter, ',')
 
     def test_obstype(self):
         """
         Check that observation type matches data in header.
         """
         reader = VisualFormatReader(self.fp)
-        self.assertEqual(reader.obstype, str('Visual'))
+        self.assertEqual(reader.obstype, 'Visual')
 
     def test_missing_obstype(self):
         """
