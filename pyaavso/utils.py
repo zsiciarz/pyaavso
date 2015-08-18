@@ -7,7 +7,7 @@ from .parsers import WebObsResultsParser
 
 logger = logging.getLogger(__name__)
 
-WEBOBS_RESULTS_URL = 'http://www.aavso.org/apps/webobs/results/'
+WEBOBS_RESULTS_URL = 'https://www.aavso.org/apps/webobs/results/'
 
 
 def download_observations(observer_code):
