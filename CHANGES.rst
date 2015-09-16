@@ -2,6 +2,12 @@
 Changelog
 =========
 
+Unreleased
+==========
+
+* first **Python 3-only** release!
+* Python 3.5 support
+
 0.1.5
 =====
 
