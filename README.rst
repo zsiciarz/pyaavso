@@ -30,7 +30,7 @@ pyaavso
 
 **pyaavso** is a Python library for working with
 `AAVSO <http://www.aavso.org>`_ (American Association of Variable Star
-Observers) data. The library is compatible with both Python 2.7 and 3.3+.
+Observers) data. The library is compatible with Python 3.3+.
 
 Features
 --------
